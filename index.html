@@ -37,7 +37,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 	//adding java for question responses 
-	<script>
     var allergy_count = 0; //probability of allergy being zero 
     var cold_count = 0; //probability of cold is zero 
     var total_questions = 4; // Update this based on the total number of questions
@@ -94,19 +93,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     <a href="#two" onclick="coldAdd();" class="w3-btn w3-black">No</a> 		 <!-- no increases allergy chance and moves to next question -->
 </div>
 
-<div class="page" id="two"> <!-- page for results -->
+<div class="page" id="two"> <!-- page for two -->
     <p>Do you have a fever?</p>
     <a href="#three" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
     <a href="#three" onclick="allergyAdd();" class="w3-btn w3-black">No</a>
 </div>
 
-<div class="page" id="three">
+<div class="page" id="three"> <!-- page for three -->
     <p>Do you have a sore throat?</p>
     <a href="#four" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
     <a href="#four" onclick="allergyAdd();" class="w3-btn w3-black">No</a>
 </div>
 
-<div class="page" id="four">
+<div class="page" id="four"> <!-- page for four -->
     <p>Are your symptoms seasonal or chronic?</p>
     <a href="#resultsPage" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a>
     <a href="#resultsPage" onclick="coldAdd();" class="w3-btn w3-black">No</a>
