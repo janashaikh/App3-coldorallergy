@@ -36,8 +36,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
-	var allergy_count = 0;
+	<script>
+    var allergy_count = 0;
     var cold_count = 0;
+    var total_questions = 4; // Update this based on the total number of questions
 
     function allergyAdd() {
         allergy_count += 1;
@@ -47,28 +49,15 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         cold_count += 1;
     }
 
-    function showResults() {
-        var total = allergy_count + cold_count;
-        var allergyPercent = (allergy_count / total) * 100;
-        var coldPercent = (cold_count / total) * 100;
+    function calculateResults() {
+        var allergyPercent = (allergy_count / total_questions) * 100;
+        var coldPercent = (cold_count / total_questions) * 100;
 
-        document.getElementById("results").innerHTML =
-            "Probability it is allergies = " + allergyPercent.toFixed(2) + "% <br> " +
-            "Probability it is a cold = " + coldPercent.toFixed(2) + "%";
+        var resultText = document.getElementById("results");
+        resultText.innerHTML = "Probability it is allergies: " + allergyPercent.toFixed(1) + "%<br> Probability it is a cold: " + coldPercent.toFixed(1) + "%";
     }
-        var allergy_count = 0;
-        var cold_count = 0;
+</script>
 
-
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		alert(allergy_count);
-
-        }
-
-        function coldAdd(){
-            cold_count = cold_count + 1;
-        }
 
   </script>
 
@@ -158,6 +147,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>Content of page 2 goes here.</p>
 	</div>
+	<div class="page" id="resultsPage">
+    <div class="w3-container w3-flat-carrot">
+        <h1>Results</h1>
+    </div>
+
+    <div class="w3-container">
+        <p id="results"></p>
+        <a href="#" class="w3-btn w3-black" onclick="calculateResults();">See Results</a>
+    </div>
+</div>
+
 </div>	
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
