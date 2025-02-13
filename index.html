@@ -36,6 +36,26 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
+	var allergy_count = 0;
+    var cold_count = 0;
+
+    function allergyAdd() {
+        allergy_count += 1;
+    }
+
+    function coldAdd() {
+        cold_count += 1;
+    }
+
+    function showResults() {
+        var total = allergy_count + cold_count;
+        var allergyPercent = (allergy_count / total) * 100;
+        var coldPercent = (cold_count / total) * 100;
+
+        document.getElementById("results").innerHTML =
+            "Probability it is allergies = " + allergyPercent.toFixed(2) + "% <br> " +
+            "Probability it is a cold = " + coldPercent.toFixed(2) + "%";
+    }
         var allergy_count = 0;
         var cold_count = 0;
 
@@ -76,7 +96,37 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 }
 </style>
 
-<body>
+<body> 
+	<div class="page" id="one">
+    <p>Are your eyes watery or itchy?</p>
+    <a href="#two" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a>
+    <a href="#two" onclick="coldAdd();" class="w3-btn w3-black">No</a>
+</div>
+
+<div class="page" id="two">
+    <p>Do you have a fever?</p>
+    <a href="#three" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
+    <a href="#three" onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+</div>
+
+<div class="page" id="three">
+    <p>Do you have a sore throat?</p>
+    <a href="#four" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
+    <a href="#four" onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+</div>
+
+<div class="page" id="four">
+    <p>Are your symptoms seasonal or chronic?</p>
+    <a href="#resultsPage" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a>
+    <a href="#resultsPage" onclick="coldAdd();" class="w3-btn w3-black">No</a>
+</div>
+
+<!-- Results Page -->
+<div class="page" id="resultsPage">
+    <p id="results"></p>
+    <button onclick="showResults();" class="w3-btn w3-green">Show Results</button>
+</div>
+
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>Cold or Allergies?</h1>
 </div>
